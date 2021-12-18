@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import { CompanyName } from './CssStore'
-import { TrinkerrData } from '../Maindata'
+import { CompanyName,Hiddenandseek } from './CssStore'
 
-export const CompanyData = () => {
+export const CompanyData = ({trigIt}) => {
 
     const [data, setData] = useState([]);
+    const [trick,setTrick]=useState(true);
 
     useEffect(() => {
-        setData(TrinkerrData);
         StoreDataLocalStroge();
-    }, [])
+    }, [trigIt,trick])
 
     const StoreDataLocalStroge = () => { 
-        let newArr = localStorage.getItem("stock");
-        console.log(newArr);
+        let newArr = JSON.parse(localStorage.getItem("stock"))
+        if (newArr !== null)
+        { 
+            setData(newArr);
+        }
+    }
+
+    const deleteData = (idee) => { 
+        let newArr = JSON.parse(localStorage.getItem("stock"));
+        let supportTray = [];
+            newArr.map((el) => { 
+                if (el[0] !== idee[0])
+                { 
+                    supportTray=[...supportTray,el]
+                }
+            })
+        localStorage.setItem("stock", JSON.stringify(supportTray));
+        setTrick(!trick)
     }
 
     return (
@@ -37,7 +52,12 @@ export const CompanyData = () => {
                                 }
                                 
                                 <p style={{color:"#9D9D9D",fontSize:"20px"}}>{nesdek}</p>
-                        </div>
+                            </div>
+
+                            <Hiddenandseek className="showMethebutton123456" onClick={()=>deleteData(el)} >
+                                    <img src="https://user-images.githubusercontent.com/72969348/146633394-7aa301ca-2a35-4243-9dc3-8409eb65b28f.png" alt="delte" />
+                            </Hiddenandseek>
+
                             <div className ="col-2">
                                 {
                                     el[1] < el[2] ?

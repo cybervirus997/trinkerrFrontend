@@ -1,7 +1,7 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { SearchBar } from './Components/SearchBar';
-import { NameBox } from './Components/NameBox'
-import { CompanyData } from './Components/CompanyData'
+// import { NameBox } from './Components/NameBox'
+// import { CompanyData } from './Components/CompanyData'
 
 
 function App() {
@@ -9,8 +9,6 @@ function App() {
     <div className="App">
       <div className="col-8 mt-2" style={{border:"3px solid #F2F2F2",margin:"auto"}}>
         <SearchBar />
-        <NameBox />
-        <CompanyData />
       </div>
     </div>
   );

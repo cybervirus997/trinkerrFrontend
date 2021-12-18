@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Appbar } from './CssStore'
+import { CompanyData } from './CompanyData'
+import { NameBox } from './NameBox'
 import { TrinkerrData } from '../Maindata'
-import { CompanyName } from './CssStore'
+import { CompanyName,Hiddenandseek} from './CssStore'
 
 export const SearchBar = () => {
 
     const [title, setTitle] = useState("")
-    const [wholeData,setWholeData]=useState([])
+    const [wholeData, setWholeData] = useState([])
+    const [bool, setBool] = useState(true);
 
     useEffect(() => { 
         searchTypeData();
@@ -31,6 +34,23 @@ export const SearchBar = () => {
             
         })
         setWholeData(arr);
+        setBool(!bool);
+    }
+
+
+    const addDataToLocalStroge = (el2) => {
+       
+        let newarr = JSON.parse(localStorage.getItem("stock"))
+        if (newarr === null) {
+            let res = [];
+            res.push(el2)
+            localStorage.setItem("stock", JSON.stringify(res))
+        } else
+        { 
+            let xyz = JSON.parse(localStorage.getItem("stock"));
+            xyz.push(el2);
+            localStorage.setItem("stock", JSON.stringify(xyz))
+        }
     }
 
     return (
@@ -39,7 +59,11 @@ export const SearchBar = () => {
                 <Appbar type="type" name="searchbar" placeholder="Search stocks..." onChange={(e)=>setTitle(e.target.value)} />
             </div>
 
-            <div className='col-8' style={{position: "absolute",background:"white",top:"99px"}}>
+            
+            {
+                wholeData.length !== 0 ?  
+                    
+                <div style={{width:"66%",position: "absolute",background:"white",top:"99px"}}>
                 {/* sdfgh */}
                     {
                     wholeData.map((el,i) => {
@@ -53,7 +77,7 @@ export const SearchBar = () => {
                             <CompanyName className="p-4 pb-2" key={i} style={{borderBottom: "3px solid #F2F2F2"}} >
                                 <div className = "col-3">
                                     {
-                                        el[1] > el[2] ?
+                                        el[1] < el[2] ?
                                             <p style={{color:"#E7592E" }}>{name}</p> :
                                             <p style={{color:"#29C5C1" }}>{name}</p> 
                                     }
@@ -61,9 +85,9 @@ export const SearchBar = () => {
                                     <p style={{color:"#9D9D9D",fontSize:"20px"}}>{nesdek}</p>
                                 </div>
                                 
-                                <div>
-                                    <button onClick={()=>console.log("clickedData",el)}>click</button>
-                                </div>
+                                <Hiddenandseek className="showMethebutton" onClick={() => addDataToLocalStroge(el)}>
+                                    +
+                                </Hiddenandseek>
 
                                 <div className ="col-2">
                                     {
@@ -89,8 +113,17 @@ export const SearchBar = () => {
                     }) 
                 }
                 {/* dfghj */}
-            </div>
+                    </div> :
+                    <div style={{display:"none"}}>
+                        
+                    </div>        
+                    
+            }
+            
 
+            <NameBox /> 
+
+            <CompanyData trigIt={bool} />
         </>    
     )
 }

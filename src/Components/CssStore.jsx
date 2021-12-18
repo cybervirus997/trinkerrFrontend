@@ -40,11 +40,28 @@ const CompanyName = styled.div`
     line-height:0.7;
     display:flex;
     flex-flow:row;
+    border-bottom: 3px solid #F2F2F2;
     justify-content:space-between;
     :hover{
         background-color: #FAFAFA;
     }
+    &:hover .showMethebutton {
+        display: block;
+    }
+    &:hover .showMethebutton123456 {
+        display: block;
+    }
+`
+const Hiddenandseek = styled.div`
+  display:none;
+  cursor:pointer;
+  padding: 7px 11px;
+  font-weight: 500;
+  font-size:50px;
+  width:60px;
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `
 
 
-export { Appbar,NameSpace,CompanyName}
+export { Appbar,NameSpace,CompanyName,Hiddenandseek}
