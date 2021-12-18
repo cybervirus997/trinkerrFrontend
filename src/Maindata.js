@@ -1,5 +1,5 @@
-{
-    "trinkerData":[
+
+ export const TrinkerrData = [
     [
         "ASIANPAINT::NSE",
         3143.65,
@@ -9425,5 +9425,7 @@
         358.82,
         357.41
     ]
-]
-}
+];
+
+
+
