@@ -4,7 +4,7 @@ import { NameSpace } from './CssStore'
 export const NameBox = () => {
     return (
         <div className="col-12" style={{ borderTop: "3px solid #F2F2F2",borderBottom: "3px solid #F2F2F2"}}>
-            <NameSpace style={{paddingTop:"15px",paddingBottom:"40px"}}>
+            <NameSpace style={{paddingTop:"20px",paddingBottom:"20px"}}>
                 <div className="col-10 ps-3">
                     <p>Abhishek</p>
                 </div>

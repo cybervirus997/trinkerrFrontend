@@ -92,7 +92,9 @@ export const CompanyData = ({trigIt,data,setData}) => {
                     </CompanyName>
                     )
                     
-                }): "" 
+                }) : <div>
+                    <img src="https://user-images.githubusercontent.com/72969348/146673804-d489b6b2-f32a-44f9-9f12-fab4bef9eea0.jpg" alt="data_not_found" style={{width:"40%",marginLeft:"30%"}} />
+                </div> 
             }
         </div>
     )
