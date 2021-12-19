@@ -63,6 +63,40 @@ const Hiddenandseek = styled.div`
   height: 60px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 `
+const FooterCss = styled.div`
+    font-size:24px;
+    font-weight:600;
+    height:60px;
+    text-align:center;
+    border: 1px solid #D8D8D8;
+    background-color: white ;
+    position: fixed ;
+    bottom: 4px;
+    justify-content: space-between;
+    .create123456789{
+        padding-left:11px;
+        margin-top:-4px;
+    }
+    .image02323{
+        width:20%;
+        height: 130%;
+    }
+    .bldhwfbwe23
+    {
+       margin-top:-4px; 
+    }  
+    .qwertgfvbhjn1234
+    {
+        border: 1px solid #D8D8D8
+    }
+    &:hover .vfwehgf3456
+    {
+        border: 2px solid #3FA9FF;
+    }
+    &:hover .create123456789
+    {
+        color: #3FA9FF;
+    }
+`
 
-
-export { Appbar,NameSpace,CompanyName,Hiddenandseek}
+export { Appbar,NameSpace,CompanyName,Hiddenandseek,FooterCss}

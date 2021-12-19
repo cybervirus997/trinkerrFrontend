@@ -3,6 +3,7 @@ import { Appbar } from './CssStore'
 import { CompanyData } from './CompanyData'
 import { NameBox } from './NameBox'
 import { TrinkerrData } from '../Maindata'
+import { Footer } from './Footer'
 import { CompanyName,Hiddenandseek} from './CssStore'
 
 export const SearchBar = () => {
@@ -156,6 +157,8 @@ export const SearchBar = () => {
             <NameBox /> 
 
             <CompanyData trigIt={bool} />
+
+            <Footer />
         </>    
     )
 }
