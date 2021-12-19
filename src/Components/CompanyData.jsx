@@ -16,9 +16,21 @@ export const CompanyData = ({trigIt}) => {
         { 
             setData(newArr);
         }
+        console.log("qwert");
     }
 
+    // const clearLocalStroge = () => { 
+    //     let helloArr = JSON.parse(localStorage.getItem("stock"));
+    //     console.log("above it");
+    //     if (helloArr.length === 0)
+    //     { 
+    //         localStorage.removeItem("stock");
+    //         console.log("bellow it");
+    //     }
+    // }
+
     const deleteData = (idee) => { 
+        
         let newArr = JSON.parse(localStorage.getItem("stock"));
         let supportTray = [];
         
@@ -28,14 +40,24 @@ export const CompanyData = ({trigIt}) => {
                     supportTray=[...supportTray,el]
                 }
             })
-        localStorage.setItem("stock", JSON.stringify(supportTray));
+        
+            localStorage.setItem("stock", JSON.stringify(supportTray));
+        let newArr1 = JSON.parse(localStorage.getItem("stock"));
+        
+        if (newArr1.length === 0 )
+        { 
+            localStorage.removeItem("stock");
+        }
+        
+        setData(supportTray);
         setTrick(!trick)
     }
+
 
     return (
         <div className="col-12" style={{ borderBottom: "3px solid #F2F2F2" }}>
             
-            {
+            {data[0] ?
                 data.map((el,i) => {
                     let UnsplitedName = el[0].split("::");
                     let name = UnsplitedName[0];
@@ -80,7 +102,7 @@ export const CompanyData = ({trigIt}) => {
                     </CompanyName>
                     )
                     
-                }) 
+                }): "" 
             }
         </div>
     )

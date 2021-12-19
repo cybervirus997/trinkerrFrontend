@@ -15,7 +15,7 @@ export const SearchBar = () => {
     useEffect(() => { 
         searchTypeData();
     }, [title])
-    
+
     
     const searchTypeData = () => { 
         let arr = [];
@@ -66,7 +66,7 @@ export const SearchBar = () => {
                 }
             })
         localStorage.setItem("stock", JSON.stringify(supportTray));
-            setTitle("")
+        setTitle("")
     }
 
 
