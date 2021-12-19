@@ -1,8 +1,5 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { SearchBar } from './Components/SearchBar';
-// import { NameBox } from './Components/NameBox'
-// import { CompanyData } from './Components/CompanyData'
-
 
 function App() {
   return (

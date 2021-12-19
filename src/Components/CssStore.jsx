@@ -55,6 +55,7 @@ const CompanyName = styled.div`
 const Hiddenandseek = styled.div`
   display:none;
   cursor:pointer;
+  color: grey;
   padding: 7px 10px;
   font-weight: 500;
   font-size:50px;

@@ -85,7 +85,7 @@ export const SearchBar = () => {
                         let UnsplitedName = el[0].split("::");
                         let name = UnsplitedName[0];
                         let nesdek = UnsplitedName[1];
-                        let curr = Number(el[2]);
+                        let curr = Number(el[1]);
                         let per = (((Number(el[1]) - Number(el[2])) / Number(el[2])) * 100).toFixed(2);
 
                         let UIarr = JSON.parse(localStorage.getItem("stock"));
@@ -111,11 +111,10 @@ export const SearchBar = () => {
                                                 <img src="https://user-images.githubusercontent.com/72969348/146633394-7aa301ca-2a35-4243-9dc3-8409eb65b28f.png" alt="delte" />
                                             </Hiddenandseek> : <Hiddenandseek className="showMethebutton" style={{backgroundColor:"white",position:"absolute"}}  onClick={() => addDataToLocalStroge(el)}>
                                             +
-                                        </Hiddenandseek> ) : <Hiddenandseek className="showMethebutton"  onClick={() => addDataToLocalStroge(el)}>
+                                            </Hiddenandseek> ) : <Hiddenandseek className="showMethebutton"  onClick={() => addDataToLocalStroge(el)}>
                                             +
-                                        </Hiddenandseek>
+                                            </Hiddenandseek>
                                  }
-
                                 </div>
                                 
                                 

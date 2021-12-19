@@ -40,7 +40,7 @@ export const CompanyData = ({trigIt}) => {
                     let UnsplitedName = el[0].split("::");
                     let name = UnsplitedName[0];
                     let nesdek = UnsplitedName[1];
-                    let curr = Number(el[2]);
+                    let curr = Number(el[1]);
                     let per = (((Number(el[1]) - Number(el[2])) / Number(el[2])) * 100).toFixed(2);
 
                     return (

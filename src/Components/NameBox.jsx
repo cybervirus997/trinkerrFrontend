@@ -3,9 +3,9 @@ import { NameSpace } from './CssStore'
 
 export const NameBox = () => {
     return (
-        <div className="col-12 ps-4 pe-4" style={{ borderTop: "3px solid #F2F2F2",borderBottom: "3px solid #F2F2F2"}}>
+        <div className="col-12" style={{ borderTop: "3px solid #F2F2F2",borderBottom: "3px solid #F2F2F2"}}>
             <NameSpace style={{paddingTop:"15px",paddingBottom:"40px"}}>
-                <div className="col-10">
+                <div className="col-10 ps-3">
                     <p>Abhishek</p>
                 </div>
                 <div className="col-2 ps-2 pe-5 d-flex flex-row" style={{justifyContent:"space-between"}}>
