@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { CompanyName,Hiddenandseek } from './CssStore'
 
-export const CompanyData = ({trigIt}) => {
+export const CompanyData = ({trigIt,data,setData}) => {
 
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
     const [trick,setTrick]=useState(true);
 
     useEffect(() => {
@@ -18,16 +18,6 @@ export const CompanyData = ({trigIt}) => {
         }
         console.log("qwert");
     }
-
-    // const clearLocalStroge = () => { 
-    //     let helloArr = JSON.parse(localStorage.getItem("stock"));
-    //     console.log("above it");
-    //     if (helloArr.length === 0)
-    //     { 
-    //         localStorage.removeItem("stock");
-    //         console.log("bellow it");
-    //     }
-    // }
 
     const deleteData = (idee) => { 
         

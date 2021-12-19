@@ -11,6 +11,7 @@ export const SearchBar = () => {
     const [title, setTitle] = useState("")
     const [wholeData, setWholeData] = useState([])
     const [bool, setBool] = useState(true);
+    const [data, setData] = useState([]);
 
     useEffect(() => { 
         searchTypeData();
@@ -67,6 +68,13 @@ export const SearchBar = () => {
             })
         localStorage.setItem("stock", JSON.stringify(supportTray));
         setTitle("")
+        let newArr1 = JSON.parse(localStorage.getItem("stock"));
+        
+        if (newArr1.length === 0 )
+        { 
+            localStorage.removeItem("stock");
+        }
+        setData(supportTray)
     }
 
 
@@ -115,8 +123,8 @@ export const SearchBar = () => {
                                             </Hiddenandseek> ) : <Hiddenandseek className="showMethebutton"  onClick={() => addDataToLocalStroge(el)}>
                                             +
                                             </Hiddenandseek>
-                                 }
-                                </div>
+                                    }
+                                    </div>
                                 
                                 
                                 {/* <Hiddenandseek className="showMethebutton" style={{marginLeft:"51%"}} onClick={() => addDataToLocalStroge(el)}>
@@ -156,7 +164,7 @@ export const SearchBar = () => {
 
             <NameBox /> 
 
-            <CompanyData trigIt={bool} />
+            <CompanyData trigIt={bool} data={data} setData={setData} />
 
             <Footer />
         </>    
