@@ -13,7 +13,6 @@ export const SearchBar = () => {
 
     useEffect(() => { 
         searchTypeData();
-        // console.log(wholeData);
     }, [title])
     
     
@@ -51,15 +50,31 @@ export const SearchBar = () => {
             xyz.push(el2);
             localStorage.setItem("stock", JSON.stringify(xyz))
         }
+        setTitle("")
     }
+
+
+    const hadleDelteFromSearch = (elee) => { 
+        let newArr = JSON.parse(localStorage.getItem("stock"));
+        let supportTray = [];
+        
+            newArr.map((el) => { 
+                if (el[0] !== elee[0])
+                { 
+                    supportTray=[...supportTray,el]
+                }
+            })
+        localStorage.setItem("stock", JSON.stringify(supportTray));
+            setTitle("")
+    }
+
 
     return (
         <>
             <div className="col-12 p-4">
-                <Appbar type="type" name="searchbar" placeholder="Search stocks..." onChange={(e)=>setTitle(e.target.value)} />
+                <Appbar type="type" name="searchbar" placeholder="Search stocks..." value={title} onChange={(e)=>setTitle(e.target.value)} />
             </div>
 
-            
             {
                 wholeData.length !== 0 ?  
                     
@@ -73,6 +88,8 @@ export const SearchBar = () => {
                         let curr = Number(el[2]);
                         let per = (((Number(el[1]) - Number(el[2])) / Number(el[2])) * 100).toFixed(2);
 
+                        let UIarr = JSON.parse(localStorage.getItem("stock"));
+
                         return (
                             <CompanyName className="p-4 pb-2" key={i} style={{borderBottom: "3px solid #F2F2F2"}} >
                                 <div className = "col-3">
@@ -84,10 +101,27 @@ export const SearchBar = () => {
                                     
                                     <p style={{color:"#9D9D9D",fontSize:"20px"}}>{nesdek}</p>
                                 </div>
+
+                                <div>
+
+                                    {
+                                    UIarr !== null ? UIarr.map((item) => 
+                                        item[0] === el[0] ? 
+                                            <Hiddenandseek className="showMethebutton" style={{ backgroundColor: "white", zIndex: "100", position: "absolute" }} onClick={()=>hadleDelteFromSearch(el)}>
+                                                <img src="https://user-images.githubusercontent.com/72969348/146633394-7aa301ca-2a35-4243-9dc3-8409eb65b28f.png" alt="delte" />
+                                            </Hiddenandseek> : <Hiddenandseek className="showMethebutton" style={{backgroundColor:"white",position:"absolute"}}  onClick={() => addDataToLocalStroge(el)}>
+                                            +
+                                        </Hiddenandseek> ) : <Hiddenandseek className="showMethebutton"  onClick={() => addDataToLocalStroge(el)}>
+                                            +
+                                        </Hiddenandseek>
+                                 }
+
+                                </div>
                                 
-                                <Hiddenandseek className="showMethebutton" onClick={() => addDataToLocalStroge(el)}>
+                                
+                                {/* <Hiddenandseek className="showMethebutton" style={{marginLeft:"51%"}} onClick={() => addDataToLocalStroge(el)}>
                                     +
-                                </Hiddenandseek>
+                                </Hiddenandseek> */}
 
                                 <div className ="col-2">
                                     {
@@ -112,12 +146,11 @@ export const SearchBar = () => {
                         
                     }) 
                 }
-                {/* dfghj */}
-                    </div> :
-                    <div style={{display:"none"}}>
+
+                </div> :
+                <div style={{display:"none"}}>
                         
-                    </div>        
-                    
+                </div>            
             }
             
 

@@ -55,12 +55,12 @@ const CompanyName = styled.div`
 const Hiddenandseek = styled.div`
   display:none;
   cursor:pointer;
-  padding: 7px 11px;
+  padding: 7px 10px;
   font-weight: 500;
   font-size:50px;
   width:60px;
   height: 60px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 `
 
 
